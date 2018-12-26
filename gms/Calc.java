@@ -1,4 +1,4 @@
-package real;
+package gms;
 
 public class Calc{
 
@@ -24,10 +24,12 @@ public class Calc{
 		return res;
 	}
 	
-	public String gugudan(int dan) {
+	public String gugudan(String gugu) {
 		String res = "";
+		int num = Integer.parseInt(gugu);
+		for(int i = 1; i<=9; i++){
+			res += num +"x"+ i +"="+(num*i)+"\n";
+		}
 		return res;
 	}
 }
-
-

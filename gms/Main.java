@@ -1,19 +1,18 @@
-package real;
+package gms;
 
-import java.util.Scanner;
+import java.util.Random;
 
 import javax.swing.JOptionPane;
-import javax.swing.text.html.parser.Parser;
 
 public class Main {
 	public static void main(String[] args) {
 		while(true) {
 			String menu = JOptionPane.showInputDialog(
-					"0.종료\n "
-							+ "1.회원관리 \n"
-							+ "2.계산기 \n"
-							+ "3.로또 \n"
-							+ "4.달력 \n");
+					"0.종료\n"
+							+ "1.회원관리\n"
+							+ "2.계산기\n"
+							+ "3.로또번호생성기\n"
+							+ "4.달력\n");
 			switch(menu) {
 			case "0":
 				JOptionPane.showMessageDialog(null,"시스템 종료");
@@ -58,17 +57,31 @@ public class Main {
 				
 				switch (cMenu) {
 				case "1":
-					String res1 = JOptionPane.showInputDialog(null,"계산기입니다.");
-					String [] op = res1.split("");
+					String res1 = JOptionPane.showInputDialog(null,"계산기입니다.공백을 주세요.");
+					String [] op = res1.split("\\s");
 					String res = c.calc(op);
 					JOptionPane.showMessageDialog(null, res);
 					break;
 
+				case "2":
+					String danres = JOptionPane.showInputDialog(null,"구구단 몇단?");
+					JOptionPane.showMessageDialog(null,c.gugudan(danres));
+					break;
 				default:
 					break;
 				}
+			case "3":
+				Lotto l = new Lotto();
+				JOptionPane.showMessageDialog(null, "두구두구두구\n로또번호 나와라!", "º＊↖로또번호생성기↗º＊", JOptionPane.INFORMATION_MESSAGE, null);
+				JOptionPane.showMessageDialog(null, l.randomNum());
+				break;
 				
-				
+			case "4":
+				MyCalender mc = new MyCalender();
+				String year = JOptionPane.showInputDialog(null,"년도를 입력하세요.");
+				String year1 = mc.leapYear(year);
+				JOptionPane.showMessageDialog(null, String.format("%s년은 %s입니다.",year,year1));
+				break;
 			}
 		}
 	}

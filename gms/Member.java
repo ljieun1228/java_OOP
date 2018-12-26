@@ -1,4 +1,4 @@
-package real;
+package gms;
 
 import java.util.Scanner;
 
@@ -74,10 +74,3 @@ public class Member {
 		return checker;
 	}
 }
-
-
-
-
-
-
-
